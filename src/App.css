@@ -60,11 +60,11 @@
 */
 
 .color-nav {
-    background-color: rgb(51, 51, 51);
+    background-color: rgb(122, 34, 34);
 }
 
 #nav-dropdown {
-    color: white;
+    color: BLACK;
     font-weight: bold;
     background-color: red;
 }

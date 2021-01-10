@@ -77,7 +77,7 @@ class Home extends Component {
     var el = []
     for (const actor of this.state.movieActors) {
       if (actor.age === 0) continue;
-      el.push(<li key={actor.actor}>{actor.actor} <b>Year Of Birth</b>: {actor.yob} <b>Age</b>: {actor.age}</li>)
+      el.push(<li key={actor.actor}><b>Actor</b>: {actor.actor} <b>Year Of Birth</b>: {actor.yob} <b>Age</b>: {actor.age}</li>)
 
     }
 
@@ -90,13 +90,15 @@ class Home extends Component {
     return (
 
       <div className="main">
-
         <p><br />
         </p>
+        <p><br />
+        <i>Have you ever been watching a movie, then wonder how old the actors were when the movie was made? Wonder no longer my friend...  
+        </i></p><br />
 
         <form onSubmit={this.handleSubmit}>
         <label>
-          Name:
+          <b>Movie Title</b>: <br/>
           <input type="text" value={this.state.movie} onChange={this.handleChange} />
         </label>
         <input type="submit" value="Submit" />
@@ -108,7 +110,7 @@ class Home extends Component {
 
 
         <footer align="center" style={{ background: "clear" }}>
-          <small >© Copyright howoldwerethey.com | All rights reserved | <i>Last Updated: 12.28.20</i></small>
+          <small >© Copyright howoldwerethey.com | All rights reserved </small>
         </footer>
       </div>
 
