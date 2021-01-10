@@ -101,7 +101,7 @@ class Home extends Component {
           <b>Movie Title</b>: <br/>
           <input type="text" value={this.state.movie} onChange={this.handleChange} />
         </label>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Search" />
       </form>
 
       <ul>
