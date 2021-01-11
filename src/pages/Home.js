@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { List, ListItem, ListItemContent, CardTitle, CardText, Card } from 'react-mdl';
+import { List, ListItem, ListItemContent, CardActions, CardTitle, CardText, Card } from 'react-mdl';
 import Spinner from 'react-bootstrap/Spinner'
 import '../App.css';
 
@@ -47,7 +47,6 @@ class Home extends Component {
       var movieActors = [];
       for (const actor of res.body.results[0].principals) {
         const id = actor.id.split("/")[2];
-        movieActors.push({ actor: actor.name, id: id, yob: 0, age: 0 });
         var nreq = unirest("GET", "https://imdb8.p.rapidapi.com/actors/get-bio");
         nreq.query({
           "nconst": id
@@ -64,7 +63,7 @@ class Home extends Component {
           const yr = parseInt(res.body.birthDate.split("-")[0])
           const yob = res.body.birthDate.split("-")[0]
           const age = movieYear - yr;
-          movieActors.push({ actor: actor.name, id: id, yob: yob, age: age });
+          movieActors.push({ actor: actor.name, id: id, yob: yob, age: age, imageurl: res.body.image.url});
           currentComponent.setState({ movieActors: movieActors, isLoading: false });
         });
       }
@@ -104,11 +103,20 @@ class Home extends Component {
     for (const actor of this.state.movieActors) {
       const d = "Year Of Birth: " + actor.yob + " | Age in movie: " + actor.age;
       if (actor.age === 0) continue;
+      const a = 'url('+actor.imageurl+') center / cover'
       el.push(
-        <ListItem threeLine>
-          <ListItemContent avatar="person" subtitle={d}>{actor.actor}</ListItemContent>
-   
-        </ListItem>)
+        <Card shadow={0} style={{margin: '20px', width: '256px', height: '256px', background: 'url('+actor.imageurl+') center / cover'}}>
+    <CardTitle expand />
+    <CardActions style={{height: '52px', padding: '5px', background: 'rgba(0,0,0,0.7)'}}>
+        <span style={{color: '#fff', fontSize: '14px', fontWeight: '500'}}>
+          {actor.actor}<br/>
+            {d}
+        </span>
+    </CardActions>
+</Card>
+        
+        
+        )
     }
     return el
   }
