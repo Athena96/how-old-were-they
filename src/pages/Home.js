@@ -29,7 +29,7 @@ class Home extends Component {
     });
 
     req.headers({
-      "x-rapidapi-key": process.env.API_Key,
+      "x-rapidapi-key": process.env.API_KEY,
       "x-rapidapi-host": "imdb8.p.rapidapi.com",
       "useQueryString": true
     });
@@ -50,7 +50,7 @@ class Home extends Component {
         });
 
         nreq.headers({
-          "x-rapidapi-key": process.env.API_Key,
+          "x-rapidapi-key": process.env.API_KEY,
           "x-rapidapi-host": "imdb8.p.rapidapi.com",
           "useQueryString": true
         });
