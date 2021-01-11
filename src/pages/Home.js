@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ProgressBar, List, ListItem, ListItemContent, ListItemAction, Button, Card, CardText, Icon, CardTitle, CardActions } from 'react-mdl';
+import { List, ListItem, ListItemContent, ListItemAction, Icon } from 'react-mdl';
 import Spinner from 'react-bootstrap/Spinner'
 import '../App.css';
 
@@ -27,9 +27,10 @@ class Home extends Component {
     req.query({
       "q": this.state.movie
     });
+    console.log("API_KEY: " + process.env.API_KEY);
 
     req.headers({
-      "x-rapidapi-key": process.env.API_KEY,
+      "x-rapidapi-key": "b3d0f31affmshea4203a3aed1012p1d1502jsne567d91a15c7",
       "x-rapidapi-host": "imdb8.p.rapidapi.com",
       "useQueryString": true
     });
@@ -50,7 +51,7 @@ class Home extends Component {
         });
 
         nreq.headers({
-          "x-rapidapi-key": process.env.API_KEY,
+          "x-rapidapi-key": "b3d0f31affmshea4203a3aed1012p1d1502jsne567d91a15c7",
           "x-rapidapi-host": "imdb8.p.rapidapi.com",
           "useQueryString": true
         });
