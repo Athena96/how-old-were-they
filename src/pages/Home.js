@@ -18,7 +18,7 @@ class Home extends Component {
 
   handleSubmit(event) {
     if (this.state.movie === "") {
-      return;
+      return
     }
     this.setState({ isLoading: true });
     let currentComponent = this;
@@ -33,7 +33,7 @@ class Home extends Component {
     console.log("API_KEY: " + process.env.API_KEY);
 
     req.headers({
-      "x-rapidapi-key": "b3d0f31affmshea4203a3aed1012p1d1502jsne567d91a15c7",
+      "x-rapidapi-key": "e7d1372ca8msh640de66bbef1f29p158dc7jsn87b53fa8b82a",
       "x-rapidapi-host": "imdb8.p.rapidapi.com",
       "useQueryString": true
     });
@@ -54,7 +54,7 @@ class Home extends Component {
         });
 
         nreq.headers({
-          "x-rapidapi-key": "b3d0f31affmshea4203a3aed1012p1d1502jsne567d91a15c7",
+          "x-rapidapi-key": "e7d1372ca8msh640de66bbef1f29p158dc7jsn87b53fa8b82a",
           "x-rapidapi-host": "imdb8.p.rapidapi.com",
           "useQueryString": true
         });
