@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { List, ListItem, ListItemContent } from 'react-mdl';
+import { List, ListItem, ListItemContent, CardTitle, CardText, Card } from 'react-mdl';
 import Spinner from 'react-bootstrap/Spinner'
 import '../App.css';
 
@@ -17,6 +17,9 @@ class Home extends Component {
   }
 
   handleSubmit(event) {
+    if (this.state.movie === "") {
+      return;
+    }
     this.setState({ isLoading: true });
     let currentComponent = this;
 
@@ -70,10 +73,26 @@ class Home extends Component {
 
   renderMovie() {
     if (this.state.movieData) {
+      const imgUrl = this.state.movieData.image.url;
+      const width = this.state.movieData.image.width/3 + "px";
+      const height = this.state.movieData.image.height/3 + "px";
+
+      console.log(width)
+      console.log(height)
+
     return (
       <div>
-      <h2>"{this.state.movieData.title}" {this.state.movieData.year}</h2>
+
+      <Card shadow={0} style={{height: "500px", width: "50%"}} >
+    <CardTitle expand style={{color: '#fff', background: 'url('+imgUrl+') center / cover'}}><h2><b>"{this.state.movieData.title}"</b></h2></CardTitle>
+    <CardText>
+     <h3>{this.state.movieData.year}</h3>
+    </CardText>
+</Card>
       </div>
+
+      
+
     );
     } else {
       return <></>
