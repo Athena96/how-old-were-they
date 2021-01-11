@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { List, ListItem, ListItemContent, ListItemAction, Icon } from 'react-mdl';
+import { List, ListItem, ListItemContent } from 'react-mdl';
 import Spinner from 'react-bootstrap/Spinner'
 import '../App.css';
 
@@ -68,17 +68,27 @@ class Home extends Component {
     });
   }
 
+  renderMovie() {
+    if (this.state.movieData) {
+    return (
+      <div>
+      <h2>"{this.state.movieData.title}" {this.state.movieData.year}</h2>
+      </div>
+    );
+    } else {
+      return <></>
+    }
+  }
+
   renderActors() {
     var el = []
     for (const actor of this.state.movieActors) {
-      const d = "Year Of Birth: " + actor.yob + " Age in movie: " + actor.age;
+      const d = "Year Of Birth: " + actor.yob + " | Age in movie: " + actor.age;
       if (actor.age === 0) continue;
       el.push(
         <ListItem threeLine>
           <ListItemContent avatar="person" subtitle={d}>{actor.actor}</ListItemContent>
-          <ListItemAction>
-            <a href="#"><Icon name="star" /></a>
-          </ListItemAction>
+   
         </ListItem>)
     }
     return el
@@ -107,8 +117,11 @@ class Home extends Component {
           </Spinner>
         </div> : <></>}
 
+        {this.renderMovie()}
+ 
+
         <div>
-          <List style={{ width: '300px' }}>
+          <List style={{ width: '350px' }}>
             {this.renderActors()}
           </List>
         </div>
