@@ -82,7 +82,7 @@ class Home extends Component {
     return (
       <div>
 
-      <Card shadow={0} style={{height: "500px", width: "50%"}} >
+      <Card shadow={0} style={{height: "500px"}} >
     <CardTitle expand style={{color: '#fff', background: 'url('+imgUrl+') center / cover'}}><h2><b>"{this.state.movieData.title}"</b></h2></CardTitle>
     <CardText>
      <h3>{this.state.movieData.year}</h3>
@@ -146,6 +146,7 @@ class Home extends Component {
 
         {this.renderMovie()}
  
+        <hr />
 
         <div>
           <List style={{ width: '350px' }}>
